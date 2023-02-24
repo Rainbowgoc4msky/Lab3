@@ -1,0 +1,20 @@
+"""
+Разработайте класс с "полной инкапсуляцией", доступ к атрибутам которого и изменение данных реализуются через вызовы методов. 
+В объектно-ориентированном программировании принято имена методов для извлечения данных начинать со слова get (взять), 
+а имена методов, в которых свойствам присваиваются значения, – со слова set (установить).
+Например, getField, setField.
+"""
+
+class Computer:
+    def __init__(self, CPU, GPU, RAM, Motherboard, Power_Unit):
+        self.__CPU = CPU
+        self.__GPU = GPU
+        self.__RAM = RAM
+        self.__Motherboard = Motherboard
+        self.__Power_Unit = Power_Unit
+    def get(self, n):
+        ClassName=self.__class__.__name__
+        return gettatr(self, f"_{ClassName}__{n}")
+    def set(self, atr, val):
+        ClassName=self.__class__.__name__
+        setattr(self, f"_{ClassName}__{atr}, val")
